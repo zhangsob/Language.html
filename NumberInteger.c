@@ -1,13 +1,13 @@
-/*
-	¸¸µçÀÌ : Àå¼ºÈÆ
-	¸¸µç³¯ : 2018.05.02
+ï»¿/*
+	ë§Œë“ ì´ : ì¥ì„±í›ˆ
+	ë§Œë“ ë‚  : 2018.05.02
 */
 #include <stdio.h>
 
 int main(int argc, char *argv[])
 {
 	{
-		int i = 0;	// ±âº» Á¤¼öÇü
+		int i = 0;	// ê¸°ë³¸ ì •ìˆ˜í˜•
 		printf("int i = %d;\n", i) ;
 		printf("sizeof(0) = %zd byte\n", sizeof(0)) ;
 		printf("sizeof(i) = %zd byte\n", sizeof(i)) ;
@@ -16,9 +16,9 @@ int main(int argc, char *argv[])
 	}
 
 	{
-		char c = 0;				// ¹®ÀÚÇü (1Byte Á¤¼öÇü)
+		char c = 0;				// ë¬¸ìí˜• (1Byte ì •ìˆ˜í˜•)
 		signed char sc = 0;		
-		unsigned char b = 0;	// ¿µ¾î(ASCII)èâ ¹®ÀÚÇü (1Byte ¾ç¼öÇü)
+		unsigned char b = 0;	// ì˜ì–´(ASCII)å¤– ë¬¸ìí˜• (1Byte ì–‘ìˆ˜í˜•)
 		printf("char c = %hhi;          // 0x00 : %hhi, 0x7F : %hhi, 0x80 : %hhi, 0xFF : %hhi\n", c, (char)0x00, (char)0x7F, (char)0x80, (char)0xFF) ;
 		printf("char c = %hhi;          // 0x%02hhX : %hhi, 0x%02hhX : %hhi, 0x%02hhX : %hhi, 0x%02hhX : %hhi\n", c, 0, 0, 0x7F, 0x7F, 0x80, 0x80, -1, -1) ;
 		printf("signed char sc = %hhi;  // 0x00 : %hhi, 0x7F : %hhi, 0x80 : %hhi, 0xFF : %hhi\n", sc, (signed char)0x00, (signed char)0x7F, (signed char)0x80, (signed char)0xFF) ;
@@ -30,10 +30,10 @@ int main(int argc, char *argv[])
 	}
 
 	{
-		short s = 0;				// 2Byte Á¤¼öÇü [ 8086(XT), 80286(AT) 16bit ÄÄÇ»ÅÍ½ÃÀı intÇü ]
+		short s = 0;				// 2Byte ì •ìˆ˜í˜• [ 8086(XT), 80286(AT) 16bit ì»´í“¨í„°ì‹œì ˆ intí˜• ]
 		short int si = 0;
 		signed short int ssi = 0;
-		unsigned short us = 0;		// 2Byte ¾ç¼öÇü
+		unsigned short us = 0;		// 2Byte ì–‘ìˆ˜í˜•
 		unsigned short int usi = 0;	
 		printf("short s = %hi;                // 0x0000 : %hi, 0x7FFF : %hi, 0x8000 : %hi, 0xFFFF : %hi\n", s, (short)0x0000, (short)0x7FFF, (short)0x8000, (short)0xFFFF) ;
 		printf("short s = %hi;                // 0x%04hX : %hi, 0x%04hX : %hi, 0x%04hX : %hi, 0x%04hX : %hi\n", s, 0, 0, 0x7FFF, 0x7FFF, 0x8000, 0x8000, -1, -1) ;
@@ -48,9 +48,9 @@ int main(int argc, char *argv[])
 	}
 
 	{
-		int i = 0;				// 4Byte Á¤¼öÇü [ 80386(32bit ÄÄÇ»ÅÍ)ºÎÅÍ intÇü ... ÀÎÅÍ³İÀÌ ½ÃÀÛÇÏ´ø ½ÃÀı ]
+		int i = 0;				// 4Byte ì •ìˆ˜í˜• [ 80386(32bit ì»´í“¨í„°)ë¶€í„° intí˜• ... ì¸í„°ë„·ì´ ì‹œì‘í•˜ë˜ ì‹œì ˆ ]
 		signed int si = 0;
-		unsigned u = 0;			// 4Byte ¾ç¼öÇü
+		unsigned u = 0;			// 4Byte ì–‘ìˆ˜í˜•
 		unsigned int ui = 0;	
 		printf("int i = %i;             // 0x00000000 : %i, 0x7FFFFFFF : %i, 0x80000000 : %i, 0xFFFFFFFF : %i\n", i, 0x00000000, 0x7FFFFFFF, 0x80000000, 0xFFFFFFFF) ;
 		printf("int i = %i;             // 0x%08X : %i, 0x%08X : %i, 0x%08X : %i, 0x%08X : %i\n", i, 0, 0, 0x7FFFFFFF, 0x7FFFFFFF, 0x80000000, 0x80000000, -1, -1) ;
@@ -64,11 +64,11 @@ int main(int argc, char *argv[])
 	}
 
 	{
-		long l = 0;					// 4 ¶Ç´Â 8 Byte Á¤¼öÇü [ Windows x86, Windows x64 : 4 Byte, Unix(Linux) : 8 Byte ]
-		signed long sl = 0;			// ¿Ö Windows´Â 4 ByteÀÌ°í, Unix´Â 8 ByteÀÎ°¡ ?
-		signed long int sli = 0;	// Windows´Â ÁÖ·Î ÀÏ¹İÀÎÀÌ »ç¿ëÇÏ´Â Client OSÀÌ°í, Unix´Â ÁÖ·Î Àü¹®°¡°¡ »ç¿ëÇÏ´Â Server OSÀÌ´Ù.
-		unsigned long ul = 0;		// Unix´Â Àü¹®°¡ ÅëÁ¦ÇÏ¿© Upgrade°¡ °¡´ÉÇÏ´Ù. Windows´Â ÀÌ¹Ì 32bit½ÃÀı¿¡ ÀÎÅÍ³İÀ¸·Î ¿©·¯ °÷À¸·Î ¼Ò½º°¡ ¹èÆ÷µÈ °ÍÀ¸·Î ÅëÁ¦ºÒ°¡ÇÏ¿©,
-		unsigned long int uli = 0;	// ±×·¡¼­, 32bit½ÃÀı 4 Byte°¡ °è¼ÓÇØ¼­ 4 Byte·Î "È­¼®" µÇ¾ú´Ù.
+		long l = 0;					// 4 ë˜ëŠ” 8 Byte ì •ìˆ˜í˜• [ Windows x86, Windows x64 : 4 Byte, Unix(Linux) : 8 Byte ]
+		signed long sl = 0;			// ì™œ WindowsëŠ” 4 Byteì´ê³ , UnixëŠ” 8 Byteì¸ê°€ ?
+		signed long int sli = 0;	// WindowsëŠ” ì£¼ë¡œ ì¼ë°˜ì¸ì´ ì‚¬ìš©í•˜ëŠ” Client OSì´ê³ , UnixëŠ” ì£¼ë¡œ ì „ë¬¸ê°€ê°€ ì‚¬ìš©í•˜ëŠ” Server OSì´ë‹¤.
+		unsigned long ul = 0;		// UnixëŠ” ì „ë¬¸ê°€ í†µì œí•˜ì—¬ Upgradeê°€ ê°€ëŠ¥í•˜ë‹¤. WindowsëŠ” ì´ë¯¸ 32bitì‹œì ˆì— ì¸í„°ë„·ìœ¼ë¡œ ì—¬ëŸ¬ ê³³ìœ¼ë¡œ ì†ŒìŠ¤ê°€ ë°°í¬ëœ ê²ƒìœ¼ë¡œ í†µì œë¶ˆê°€í•˜ì—¬,
+		unsigned long int uli = 0;	// ê·¸ë˜ì„œ, 32bitì‹œì ˆ 4 Byteê°€ ê³„ì†í•´ì„œ 4 Byteë¡œ "í™”ì„" ë˜ì—ˆë‹¤.
 #if defined(WIN32) || defined(_WIN64)
 		printf("long l = %li;                // 0x00000000 : %li, 0x7FFFFFFF : %li, 0x80000000 : %li, 0xFFFFFFFF : %li\n", l, 0x00000000L, 0x7FFFFFFFL, 0x80000000L, 0xFFFFFFFFL) ;
 		printf("long l = %li;                // 0x%08lX : %li, 0x%08lX : %li, 0x%08lX : %li, 0x%08lX : %li\n", l, 0L, 0L, 0x7FFFFFFFL, 0x7FFFFFFFL, 0x80000000L, 0x80000000L, -1L, -1L) ;
@@ -96,10 +96,10 @@ int main(int argc, char *argv[])
 	}
 
 	{
-		long long ll = 0;				// 8 Byte Á¤¼öÇü 
+		long long ll = 0;				// 8 Byte ì •ìˆ˜í˜• 
 		signed long long sll = 0;		
 		signed long long int slli = 0;	
-		unsigned long long ull = 0;		// 8 Byte ¾ç¼öÇü
+		unsigned long long ull = 0;		// 8 Byte ì–‘ìˆ˜í˜•
 		unsigned long long int ulli = 0;
 		printf("long long ll = %lli;                // 0x0000000000000000 : %lli, 0x7FFFFFFFFFFFFFFF : %lli, 0x8000000000000000 : %lli, 0xFFFFFFFFFFFFFFFF : %lli\n", ll, (long long)0x0000000000000000, (long long)0x7FFFFFFFFFFFFFFF, (long long)0x8000000000000000, (long long)0xFFFFFFFFFFFFFFFF) ;
 		printf("long long ll = %lli;                // 0x%016llX : %lli, 0x%016llX : %lli, 0x%016llX : %lli, 0x%016llX : %lli\n", ll, 0LL, 0LL, 0x7FFFFFFFFFFFFFFFLL, 0x7FFFFFFFFFFFFFFFLL, 0x8000000000000000LL, 0x8000000000000000LL, -1LL, -1LL) ;
