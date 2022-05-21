@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf8">
-    <title>language비교표(2021-03-28)</title>
+    <title>language비교표(2022-05-21)</title>
     <style type="text/css">
     <!--
         table {
@@ -58,6 +58,8 @@
     -->
     </style>
 <script type="text/javascript">
+const LEFT_HEADER_COLUMN_COUNT = 5 ;
+
 if (!String.prototype.endsWith) {
 	String.prototype.endsWith = function(searchString, position) {
 		var subjectString = this.toString();
@@ -198,14 +200,14 @@ function tableText(tableCell) {
 			//console.log("row = "+ i + ", cellslength:" + table.rows[i].cells.length) ;
 			for(var j = tableCell.col ; j < table.rows[i].cells.length; j += 1) {
 				var cell = table.rows[i].cells[j] ;
-				if(cell.col < 5) continue ;	// Left Title
+				if(cell.col < LEFT_HEADER_COLUMN_COUNT) continue ;	// Left Title
 				
 				if(tableCell.unfoldedX)
 					cell.unfoldedC |= 2 ;
 				else
 					cell.unfoldedC &= ~2 ;
 				
-				console.log("row,col = "+ i + "," + j + ":" + tableCell.unfoldedX +"," +table.rows[0].cells[1+(cell.col-5)].unfoldedY+","+cell.unfoldedC) ;
+				console.log("row,col = "+ i + "," + j + ":" + tableCell.unfoldedX +"," +table.rows[0].cells[1+(cell.col-LEFT_HEADER_COLUMN_COUNT)].unfoldedY+","+cell.unfoldedC) ;
 
 				if(cell.unfoldedC > 0) {
 					cell.innerHTML = "<center>...</center>";
@@ -265,7 +267,7 @@ function init() {
 		for(var i = 1; i < table.rows.length; i += 1) {
 			for(var j = 0; j < table.rows[i].cells.length; j += 1) {
 				var cell = table.rows[i].cells[j] ;
-				if(cell.col >= 5) break ;
+				if(cell.col >= LEFT_HEADER_COLUMN_COUNT) break ;
 
 				cell.unfoldedX = true ;
 				cell.setAttribute('class', 'title') ;
